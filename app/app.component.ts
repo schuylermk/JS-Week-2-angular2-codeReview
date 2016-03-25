@@ -1,4 +1,3 @@
-
 import {Component} from 'angular2/core';
 import {MealFormComponent} from './meal-form.component'
 
