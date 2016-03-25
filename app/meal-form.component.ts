@@ -8,13 +8,12 @@ import { Meal }    from './meal';
 })
 export class MealFormComponent {
 
-  nutrition = ['Eating is cheating', '< 300 Calories', '> 300 Calories',
-             'En route to the gout'];
+  // nutrition = ('Less than 300 Calories', '300 Calories or more');
 
-  model = new Meal(18, 'Cheeseburger', this.nutrition[0]); //dummy data
+  model = new Meal('', '', this.nutrition);
 
   submitted = false;
-  
+
   onSubmit() { this.submitted = true; }
   // Reset the form with a new meal AND restore 'pristine' class state
   // by toggling 'active' flag

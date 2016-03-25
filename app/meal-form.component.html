@@ -5,16 +5,26 @@
       <div class="form-group">
         <label for="name">Food</label>
         <input type="text" class="form-control" required [(ngModel)]="model.name" ngControl="name" #name="ngForm">
-        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-warning">
           Name is required
         </div>
       </div>
       <div class="form-group">
-        <label for="power">Caloric Contribution</label>
-        // Dropdown menu for number of calories
-        <select class="form-control" required [(ngModel)]="model.nutrition" ngControl="nutrition" #spy>
-          <option *ngFor="#c of calories" [value]="c">{{c}}</option>
+        <label for="details">Details</label>
+        <input type="text" class="form-control"
+        [(ngModel)]="model.details" ngControl="details" #name="ngForm">
+      </div>
+      <div class="form-group">
+        <label for="nutrition">Caloric Contribution</label>
+        <select class="form-control" required
+        [(ngModel)]="model.nutrition"
+        ngControl="nutrition" #nutrition="ngForm">
+          <option value="Yes!">Healthy; 300 Calories or less</option>
+          <option value="Not so much...">Not so healthy; More than 300 Calories</option>
         </select>
+        <div [hidden]="nutrition.valid || nutrition.pristine" class="alert alert-warning">
+          Please at least estimate the amount of Calories.
+        </div>
       </div>
       <button type="submit" class="btn btn-default" [disabled]="!mealForm.form.valid">Submit</button>
       <button type="button" class="btn btn-default" (click)="newMeal()">New Meal</button>
@@ -24,11 +34,15 @@
     <h2>You submitted the following meal:</h2>
     <div class="row">
       <div class="col-xs-3">Food</div>
-      <div class="col-xs-9  pull-left">{{ model.name }}</div>
+      <div class="col-xs-9  pull-left">{{model.name}}</div>
     </div>
     <div class="row">
-      <div class="col-xs-3">Calories</div>
-      <div class="col-xs-9 pull-left">{{ model.nutrition }}</div>
+      <div class="col-xs-3">Details</div>
+      <div class="col-xs-9 pull-left">{{model.details}}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Healthy?</div>
+      <div class="col-xs-9 pull-left">{{model.nutrition}}</div>
     </div>
     <br>
     <button class="btn btn-default" (click)="submitted=false">Edit</button>
