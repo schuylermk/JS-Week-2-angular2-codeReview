@@ -1,11 +1,15 @@
 import {Component} from 'angular2/core';
 import {MealsListComponent} from './meals-list.component';
 import {Meal} from './meal';
+import {MealFormComponent} from './meal-form.component';
 
 @Component({
     selector: 'my-app',
     directives: [MealsListComponent], // directives list children of the component ex.)MealsListComponent
-    template: `<meals-list [myMeals]="myMeals"></meals-list>`
+    template: `
+      <meals-list [myMeals]="myMeals"></meals-list>,
+      <meal-form ></meal-form>
+    `
 })
 export class AppComponent {
   myMeals: Meal[] = [];
