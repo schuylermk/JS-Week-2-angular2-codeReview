@@ -16,12 +16,9 @@
       </div>
       <div class="form-group">
         <label for="nutrition">Caloric Contribution</label>
-        <select class="form-control" required
+        <input type="number" class="form-control" required [(ngModel)]="model.nutrition" ngControl="nutrition" #nutrition="ngForm">
         [(ngModel)]="model.nutrition"
         ngControl="nutrition" #nutrition="ngForm">
-          <option value="Yes!">Healthy; 300 Calories or less</option>
-          <option value="Not so much...">Not so healthy; More than 300 Calories</option>
-        </select>
         <div [hidden]="nutrition.valid || nutrition.pristine" class="alert alert-warning">
           Please at least estimate the amount of Calories.
         </div>

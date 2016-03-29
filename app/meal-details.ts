@@ -6,9 +6,10 @@ import {Meal} from './meal';
   inputs: ['meal'],
   template: `
     <div class="meal-details">
-      <h2>{{meal.details}}</h2>
+      <h2>{{meal.name}}</h2>
+      <p>{{meal.details}}</p>
       <p>{{meal.nutrition}}</p>
-      <button type="button" class="btn btn-default" (click)="editMeal()">Edit Meal></button>
+      <button type="button" class="btn btn-default"></button>
     </div>
   `
 })
